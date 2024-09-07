@@ -15,6 +15,8 @@ import io.vertx.core.eventbus.DeliveryContext;
 import io.vertx.core.eventbus.Message;
 import io.vertx.core.internal.ContextInternal;
 
+import java.util.Arrays;
+
 abstract class DeliveryContextBase<T> implements DeliveryContext<T> {
 
   public final MessageImpl<?, T> message;
@@ -52,6 +54,12 @@ abstract class DeliveryContextBase<T> implements DeliveryContext<T> {
 
   @Override
   public void next() {
+    System.out.println("invoking: " + invoking);
+    Arrays.stream(Thread.currentThread().getStackTrace()).forEach(stackTraceElement -> {
+      System.out.println("[ " + stackTraceElement + " ]");
+    });
+
+
     if (invoking) {
       invokeNext = true;
     } else {

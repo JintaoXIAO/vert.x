@@ -1,0 +1,1 @@
+mvnd package -pl vertx-samples/ -am -DskipTests && java -cp "./vertx-samples/target/*"  "io.vertx.samples.$1"

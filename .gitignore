@@ -21,3 +21,6 @@ test-tmp
 *.swp
 .vertx
 .java-version
+vertx-core/*
+.vscode
+effective-pom.xml
